@@ -1,17 +1,14 @@
--- 1. Import your database module at the very top
 local card_db = require "modules.card_db"
 
--- 2. Define the spawn function exactly as we laid it out before
 local function spawn_card(self, card_id, position)
-	-- Spawn the physical Game Object container using the factory ID
 	local card_instance = factory.create("#card_factory", position)
 	local data = card_db.cards[card_id]
 	msg.post(card_instance, "init_card_data", data)
 
-	-- return card_instance
+	return card_instance
 end
 
 function init(self)
 	local screen_center = vmath.vector3(200, 200, 0.1)
-	spawn_card(self, 101, screen_center)
+	spawn_card(self, 102, screen_center)
 end

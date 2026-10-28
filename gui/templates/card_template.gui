@@ -65,12 +65,15 @@ nodes {
     x: 0.15
     y: 0.13
   }
+  size {
+    x: 942.0
+    y: 1056.0
+  }
   type: TYPE_BOX
   texture: "illustrations/base_illustration"
   id: "illustration_container"
   parent: "card_container"
   inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {

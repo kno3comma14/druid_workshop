@@ -23,7 +23,8 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("populate_gui") then
 		gui.set_text(gui.get_node("title"), message.title)
 		gui.set_text(gui.get_node("sanity_cost"), tostring(message.sanity_cost))
-		-- gui.play_flipbook(gui.get_node("illustration_node"), message.art)
+		gui.set_text(gui.get_node("description"), message.description)
+		gui.play_flipbook(gui.get_node("illustration_container"), message.art)
 	end
 end
 
