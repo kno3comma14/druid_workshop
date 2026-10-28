@@ -11,4 +11,6 @@ end
 function init(self)
 	local screen_center = vmath.vector3(200, 200, 0.1)
 	spawn_card(self, 102, screen_center)
+	screen_center = vmath.vector3(400, 200, 0.2)
+	spawn_card(self, 101, screen_center)
 end
