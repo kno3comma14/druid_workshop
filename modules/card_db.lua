@@ -2,8 +2,8 @@
 local M = {}
 
 M.cards = {
-	[101] = { title = "Fireball", cost = 3, attack = 5, art = "art_fireball", description = "Deals 5 damage." },
-	[102] = { title = "Goblin",   cost = 1, attack = 1, art = "art_goblin",   description = "A swift attacker." }
+	[101] = { title = "Lay Down", sanity_cost = 0, art = "art_fireball", description = "Deals 5\n damage." },
+	[102] = { title = "Hightened Senses",   sanity_cost = 1, art = "art_goblin",   description = "A swift attacker." }
 }
 
 return M
