@@ -1,0 +1,4 @@
+images {
+  image: "/assets/images/illustrations/base_illustration.png"
+}
+extrude_borders: 2

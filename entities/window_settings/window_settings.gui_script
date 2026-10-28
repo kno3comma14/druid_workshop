@@ -1,0 +1,46 @@
+local druid = require("druid.druid")
+
+local is_sound_active = true
+local language_list = { "eng", "fr", "spa" }
+local language_index = 1
+local sound_text_value = "Sound " .. (is_sound_active and "ON" or "OFF")
+local language_text_value = "Language " .. language_list[language_index]
+
+local function on_sound_button_clicked(self)
+	is_sound_active = not is_sound_active
+	sound_text_value = "Sound " .. (is_sound_active and "ON" or "OFF")
+	self.druid:new_text("sound_button/text", sound_text_value)
+end
+
+local function on_languages_button_clicked(self)
+	language_index = language_index + 1
+	if language_index > #language_list then
+		language_index = 1
+	end
+	language_text_value = "Language " .. language_list[language_index]
+	self.druid:new_text("languages_button/text", language_text_value)
+end
+
+function init(self)
+	self.druid = druid.new(self)
+	self.sound_button = self.druid:new_button("sound_button/root", on_sound_button_clicked)
+	self.languages_button = self.druid:new_button("languages_button/root", on_languages_button_clicked)
+	self.druid:new_text("sound_button/text", sound_text_value)
+	self.druid:new_text("languages_button/text", language_text_value)
+end
+
+function final(self)
+	self.druid:final()
+end
+
+function update(self, dt)
+	self.druid:update(dt)
+end
+
+function on_message(self, message_id, message, sender)
+	self.druid:on_message(message_id, message, sender)
+end
+
+function on_input(self, action_id, action)
+	return self.druid:on_input(action_id, action)
+end

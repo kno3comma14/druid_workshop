@@ -1,3 +1,4 @@
+script: "/entities/window_settings/window_settings.gui_script"
 fonts {
   name: "druid_text_bold"
   font: "/druid/fonts/druid_text_bold.font"
@@ -90,40 +91,72 @@ nodes {
   shadow_alpha: 0.0
 }
 nodes {
-  size {
-    x: 220.0
-    y: 80.0
-  }
-  color {
-    x: 0.6282532
-    y: 0.9127907
-    z: 0.45108843
-  }
-  type: TYPE_BOX
-  texture: "druid/ui_circle_64"
-  id: "button_sound"
+  type: TYPE_TEMPLATE
+  id: "sound_button"
   parent: "root"
   inherit_alpha: true
-  slice9 {
-    x: 32.0
-    y: 32.0
-    z: 32.0
-    w: 32.0
-  }
+  template: "/widgets/button_text/button_text.gui"
 }
 nodes {
-  size {
-    x: 200.0
-    y: 60.0
+  type: TYPE_BOX
+  id: "sound_button/root"
+  parent: "sound_button"
+  template_node_child: true
+}
+nodes {
+  color {
+    x: 0.7019608
+    y: 0.9019608
+    z: 0.7019608
   }
+  type: TYPE_BOX
+  id: "sound_button/button"
+  parent: "sound_button/root"
+  overridden_fields: 5
+  template_node_child: true
+}
+nodes {
   type: TYPE_TEXT
   text: "Sound"
-  font: "druid_text_bold"
-  id: "sound_text"
-  parent: "button_sound"
+  id: "sound_button/text"
+  parent: "sound_button/button"
+  overridden_fields: 8
+  template_node_child: true
+}
+nodes {
+  position {
+    y: -111.0
+  }
+  type: TYPE_TEMPLATE
+  id: "languages_button"
+  parent: "root"
   inherit_alpha: true
-  outline_alpha: 0.0
-  shadow_alpha: 0.0
+  template: "/widgets/button_text/button_text.gui"
+}
+nodes {
+  type: TYPE_BOX
+  id: "languages_button/root"
+  parent: "languages_button"
+  template_node_child: true
+}
+nodes {
+  color {
+    y: 0.9019608
+    z: 0.5019608
+  }
+  type: TYPE_BOX
+  id: "languages_button/button"
+  parent: "languages_button/root"
+  overridden_fields: 5
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  text: "Languages"
+  id: "languages_button/text"
+  parent: "languages_button/button"
+  overridden_fields: 8
+  template_node_child: true
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
